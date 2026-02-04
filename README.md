@@ -9,8 +9,14 @@ This project builds a custom Fedora Kinoite (KDE Atomic) image with modification
 ## Changes from base Kinoite
 
 - Firefox removed
-- Fedora Media Writer removed
-- Fedora Flatpak remote replaced with Flathub (apps migrated)
+- All pre-installed Fedora Flatpak apps removed (MediaWriter, kolourpaint, kmahjongg, etc.)
+- Fedora Flatpak remote replaced with Flathub
+
+## Installed Apps (from Flathub)
+
+- Kolourpaint - simple image editor
+- Gwenview - image viewer
+- Okular - document viewer
 
 ## Usage
 

@@ -15,3 +15,10 @@ RUN systemctl disable flatpak-add-fedora-repos.service && \
     flatpak remote-delete fedora-testing --force || true && \
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && \
     ostree container commit
+
+# Install apps from Flathub
+RUN flatpak install --system --noninteractive flathub \
+    org.kde.kolourpaint \
+    org.kde.gwenview \
+    org.kde.okular && \
+    ostree container commit
