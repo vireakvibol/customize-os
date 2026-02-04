@@ -2,11 +2,10 @@ ARG FEDORA_VERSION=43
 
 FROM quay.io/fedora-ostree-desktops/kinoite:${FEDORA_VERSION}
 
-# Remove unwanted RPM packages and Fedora branding
+# Remove unwanted RPM packages
 RUN rpm-ostree override remove \
     firefox \
-    firefox-langpacks \
-    plasma-lookandfeel-fedora && \
+    firefox-langpacks && \
     ostree container commit
 
 # Remove all Fedora Flatpak apps and replace with Flathub
