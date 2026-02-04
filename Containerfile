@@ -2,10 +2,11 @@ ARG FEDORA_VERSION=43
 
 FROM quay.io/fedora-ostree-desktops/kinoite:${FEDORA_VERSION}
 
-# Remove unwanted RPM packages
+# Remove unwanted RPM packages and Fedora branding
 RUN rpm-ostree override remove \
     firefox \
-    firefox-langpacks && \
+    firefox-langpacks \
+    plasma-lookandfeel-fedora && \
     ostree container commit
 
 # Remove all Fedora Flatpak apps and replace with Flathub
@@ -22,3 +23,6 @@ RUN flatpak install --system --noninteractive flathub \
     org.kde.gwenview \
     org.kde.okular && \
     ostree container commit
+
+# Set default theme to Breeze (removes Fedora branding)
+COPY etc/skel/.config/kdeglobals /etc/skel/.config/kdeglobals

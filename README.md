@@ -9,8 +9,14 @@ This project builds a custom Fedora Kinoite (KDE Atomic) image with modification
 ## Changes from base Kinoite
 
 - Firefox removed
+- Fedora look-and-feel theme removed (plasma-lookandfeel-fedora)
 - All pre-installed Fedora Flatpak apps removed (MediaWriter, kolourpaint, kmahjongg, etc.)
 - Fedora Flatpak remote replaced with Flathub
+- Default theme set to Breeze
+
+### Enabling Auto Day/Night Theme (Plasma 6.5+)
+
+Go to System Settings → Quick Settings and enable automatic day/night theme switching.
 
 ## Installed Apps (from Flathub)
 
