@@ -46,7 +46,7 @@ Images are automatically built via GitHub Actions on every push and tag.
 
 | Event | Image Tag |
 |-------|-----------|
-| Push to main | `main`, `latest` |
+| Push to main | `main` |
 | Push to branch | `<branch-name>` |
 | Tag | `<tag-name>` |
 
