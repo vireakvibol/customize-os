@@ -9,17 +9,17 @@ RUN rpm-ostree override remove \
     ostree container commit
 
 # Remove all Fedora Flatpak apps and replace with Flathub
-RUN echo "--- Flatpaks before uninstall ---" && \
-    flatpak list && \
-    echo "--- Running uninstall ---" && \
-    flatpak uninstall --system --noninteractive --all && \
-    echo "--- Flatpaks after uninstall ---" && \
-    flatpak list && \
-    echo "--- Disabling and cleaning up Flatpak remotes ---" && \
+RUN echo "--- Flatpak Remotes Initial ---" && \
+    flatpak remotes && \
     systemctl disable flatpak-add-fedora-repos.service && \
+    flatpak uninstall --system --noninteractive --all || true && \
     flatpak remote-delete fedora --force || true && \
     flatpak remote-delete fedora-testing --force || true && \
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && \
+    echo "--- Flatpak Remotes After Flathub Add ---" && \
+    flatpak remotes && \
+    echo "--- Flatpaks After Flathub Setup ---" && \
+    flatpak list && \
     ostree container commit
 
 # Install apps from Flathub
